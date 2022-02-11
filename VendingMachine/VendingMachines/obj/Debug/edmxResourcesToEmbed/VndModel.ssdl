@@ -23,7 +23,7 @@
     </Key>
     <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
-    <Property Name="Image" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Image" Type="varbinary(max)" Nullable="false" />
     <Property Name="Cost" Type="decimal" Precision="18" Scale="2" Nullable="false" />
   </EntityType>
   <EntityType Name="Report">
@@ -35,6 +35,16 @@
     <Property Name="DrinkId" Type="int" Nullable="false" />
     <Property Name="AfterUpdate" Type="int" Nullable="false" />
     <Property Name="Profit" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="VendingMachineCoins">
     <Key>
@@ -135,6 +145,7 @@
     <EntitySet Name="Coins" EntityType="Self.Coins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Drinks" EntityType="Self.Drinks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Report" EntityType="Self.Report" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VendingMachineCoins" EntityType="Self.VendingMachineCoins" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VendingMachineDrinks" EntityType="Self.VendingMachineDrinks" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="VendingMachines" EntityType="Self.VendingMachines" Schema="dbo" store:Type="Tables" />

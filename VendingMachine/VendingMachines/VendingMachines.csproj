@@ -97,6 +97,9 @@
     <Compile Include="Report.cs">
       <DependentUpon>VndModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="sysdiagrams.cs">
+      <DependentUpon>VndModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="VendingMachineCoins.cs">
       <DependentUpon>VndModel.tt</DependentUpon>
     </Compile>
@@ -200,15 +203,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="drinks\md033.png" />
-    <Resource Include="drinks\sprite033.png" />
-    <Resource Include="drinks\cocacola33.png" />
-    <Resource Include="drinks\fanta0.33.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="drinks\pepsi.png" />
-  </ItemGroup>
-  <ItemGroup>
+    <Resource Include="newAdd.png" />
     <Content Include="VndModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>VndModel.edmx</DependentUpon>

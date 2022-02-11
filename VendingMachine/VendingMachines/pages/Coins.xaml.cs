@@ -23,7 +23,7 @@ namespace VendingMachines.pages
         public Coins()
         {
             InitializeComponent();
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             List<TextBox> CoinTxt = new List<TextBox>() { txt1rubles, txt2rubles, txt5rubles, txt10rubles };
             List<CheckBox> CoinCh = new List<CheckBox>() { ch1rubles, ch2rubles, ch5rubles, ch10rubles };
             List<Label> CoinLbl = new List<Label>() { lbl1rubles, lbl2rubles, lbl5rubles, lbl10rubles };
@@ -55,7 +55,7 @@ namespace VendingMachines.pages
 
         private void btnBlockCoins_Click(object sender, RoutedEventArgs e)
         {
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             List<TextBox> CoinTxt = new List<TextBox>() {txt1rubles, txt2rubles, txt5rubles, txt10rubles};
             List<CheckBox> CoinCh = new List<CheckBox>() {ch1rubles, ch2rubles, ch5rubles, ch10rubles};
             List<Label> CoinLbl = new List<Label>() {lbl1rubles, lbl2rubles, lbl5rubles, lbl10rubles};

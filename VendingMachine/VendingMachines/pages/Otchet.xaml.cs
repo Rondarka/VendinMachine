@@ -23,7 +23,7 @@ namespace VendingMachines.pages
         public Otchet()
         {
             InitializeComponent();
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             reportGrid.ItemsSource = database.Report.ToList();
 
             actuallyData.Content = DateTime.Today;

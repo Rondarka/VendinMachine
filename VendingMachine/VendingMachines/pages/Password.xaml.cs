@@ -31,7 +31,7 @@ namespace VendingMachines.pages
         {
             try
             {
-                VendingEntities database = new VendingEntities();
+                VendingMachinesEntities database = new VendingMachinesEntities();
                 var u = database.VendingMachines.Single(a => a.SecretCode.ToString() == txtSecret.Password);
                 MainAdmin newFonm = new MainAdmin();
                 newFonm.VendinMachineId = u.Id;

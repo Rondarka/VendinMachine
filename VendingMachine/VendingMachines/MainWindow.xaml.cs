@@ -36,7 +36,7 @@ namespace VendingMachines
 
         public void UpdateData(object sender, object e)
         {
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             lstDrink.ItemsSource = database.Drinks.ToList();
             List<Button> CoinButtons = new List<Button>() { NomOne, NomTwo, NomFive, NomTen };
             for (int i = 0; i < CoinButtons.Count; i++)
@@ -74,7 +74,7 @@ namespace VendingMachines
             coins_add[2]++;
             CoinCount.Content = Convert.ToString(actuallyCoin) + " руб";
 
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             var coinscount = database.VendingMachineCoins.Where(a => a.CoinsId == 3).FirstOrDefault();
             coinscount.Count += 1;
             database.SaveChanges();
@@ -86,7 +86,7 @@ namespace VendingMachines
             coins_add[3]++;
             CoinCount.Content = Convert.ToString(actuallyCoin) + " руб";
 
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             var coinscount = database.VendingMachineCoins.Where(a => a.CoinsId == 4).FirstOrDefault();
             coinscount.Count += 1;
             database.SaveChanges();
@@ -98,7 +98,7 @@ namespace VendingMachines
             coins_add[0]++;
             CoinCount.Content = Convert.ToString(actuallyCoin) + " руб";
 
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             var coinscount = database.VendingMachineCoins.Where(a => a.CoinsId == 1).FirstOrDefault();
             coinscount.Count += 1;
             database.SaveChanges(); 
@@ -111,7 +111,7 @@ namespace VendingMachines
             coins_add[1]++;
             CoinCount.Content = Convert.ToString(actuallyCoin) + " руб";
 
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             var coinscount = database.VendingMachineCoins.Where(a => a.CoinsId == 2).FirstOrDefault();
             coinscount.Count += 1;
             database.SaveChanges();
@@ -133,7 +133,7 @@ namespace VendingMachines
 
         private void lstDrink_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
 
             if (lstDrink.SelectedItem != null)
             {
@@ -178,7 +178,7 @@ namespace VendingMachines
 
         private void CashOut_Click(object sender, RoutedEventArgs e)
         {
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             int idmax = database.VendingMachineCoins.Max(id => id.CoinsId);
             int[] coins = new int[4];
             for (int i = 0; i < idmax; i++)

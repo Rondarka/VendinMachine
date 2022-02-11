@@ -29,22 +29,25 @@ namespace VendingMachines.pages
             venid = VendingMachineId;
         }
 
+        byte[] img;
         private void PicLoad(object sender, RoutedEventArgs e)
         {
-            OpenFileDialog openDialog = new OpenFileDialog();
-            openDialog.Filter = "Image files (*.BMP, *.JPG, *.GIF, *.TIF, *.PNG, *.ICO, *.EMF, *.WMF)|*.bmp;*.jpg;*.gif; *.tif; *.png; *.ico; *.emf; *.wmf *.jpeg";
-
-            if (openDialog.ShowDialog() == true)
+            Microsoft.Win32.OpenFileDialog ImageFileDialog = new Microsoft.Win32.OpenFileDialog();
+            ImageFileDialog.FileName = "Фото";
+            ImageFileDialog.DefaultExt = ".png";
+            ImageFileDialog.Filter = "Image files (.png)|*.png";
+            Nullable<bool> result = ImageFileDialog.ShowDialog();
+            if (result == true)
             {
-                picpath.Text = System.IO.Path.GetFileName(openDialog.FileName);
-                Drinkpic.Source = new BitmapImage(new Uri(openDialog.FileName));
+                picpath.Text = System.IO.Path.GetFileName(ImageFileDialog.FileName);
+                img = File.ReadAllBytes(ImageFileDialog.FileName);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            VendingEntities database = new VendingEntities();
-            Drinks drinkadd = new Drinks { Name = DrinkName.Text, Image = "drinks/" + picpath.Text, Cost = Convert.ToDecimal(DrinkCost.Text) };
+            VendingMachinesEntities database = new VendingMachinesEntities();
+            Drinks drinkadd = new Drinks { Name = DrinkName.Text, Image = img, Cost = Convert.ToDecimal(DrinkCost.Text) };
             database.Drinks.Add(drinkadd);
             int drkid = database.Drinks.Max(id => id.Id);
             VendingMachineDrinks drinkcount = new VendingMachineDrinks { VendingMachineId = venid, DrinksId = drkid + 1, Count = Convert.ToInt32(DrinkCount.Text) };

@@ -13,10 +13,10 @@ namespace VendingMachines
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class VendingEntities : DbContext
+    public partial class VendingMachinesEntities : DbContext
     {
-        public VendingEntities()
-            : base("name=VendingEntities")
+        public VendingMachinesEntities()
+            : base("name=VendingMachinesEntities")
         {
         }
     
@@ -29,6 +29,7 @@ namespace VendingMachines
         public virtual DbSet<Coins> Coins { get; set; }
         public virtual DbSet<Drinks> Drinks { get; set; }
         public virtual DbSet<Report> Report { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<VendingMachineCoins> VendingMachineCoins { get; set; }
         public virtual DbSet<VendingMachineDrinks> VendingMachineDrinks { get; set; }
         public virtual DbSet<VendingMachines> VendingMachines { get; set; }

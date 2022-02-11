@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -36,7 +37,7 @@ namespace VendingMachines
 
         public void UpdateData(object sender, object e)
         {
-            VendingEntities database = new VendingEntities();
+            VendingMachinesEntities database = new VendingMachinesEntities();
             lstDrink.ItemsSource = database.Drinks.ToList();         
         }
         private void Frame_Navigated(object sender, NavigationEventArgs e)
@@ -49,10 +50,10 @@ namespace VendingMachines
             if (lstDrink.SelectedItem != null)
             {
                 string drinkName = (lstDrink.SelectedItem as Drinks).Name;
-                string drinkPicture = (lstDrink.SelectedItem as Drinks).Image;
+                byte[] drinkPicture = (lstDrink.SelectedItem as Drinks).Image;
                 int drinkCost = Convert.ToInt32((lstDrink.SelectedItem as Drinks).Cost);
                 int drinkId = (lstDrink.SelectedItem as Drinks).Id;
-                Frame.NavigationService.Navigate(new pages.DrinkRedact(vndId, drinkId, drinkName, drinkCost, drinkPicture));
+                Frame.NavigationService.Navigate(new pages.DrinkRedact(vndId, drinkId, drinkName, drinkCost));
             }
             lstDrink.SelectedItem = null;
         }
